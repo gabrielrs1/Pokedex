@@ -8,7 +8,7 @@ export function PokemonCard({ pokemon }) {
     useEffect(() => {
         axios.get(`${pokemon.url}`)
         .then(response => setPokemonInfo(response.data.sprites))
-    }, [])
+    }, [pokemon])
 
     return (
         <Card className="align-items-center">

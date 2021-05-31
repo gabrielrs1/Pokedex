@@ -2,7 +2,6 @@ import { BoxContent, PokemonTable } from "./styles";
 import { PokemonCard } from "../PokemonCard";
 
 export function Pokemons({ pokedexValues }) {
-
     return (
         <BoxContent>
             <h1>Pokemons:</h1>

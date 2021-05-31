@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-    .then(response => setPokedex(response.data.results))
+    .then(response => (setPokedex(response.data.results), setPokedexValues(response.data.results)))
   }, [])
 
   function PokemonSearch(event) {
