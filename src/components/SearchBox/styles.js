@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BoxContent = styled.header`
+export const BoxContent = styled.form`
     margin-top: 4rem;
 
     display: flex;
