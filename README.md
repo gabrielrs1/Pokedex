@@ -6,9 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### Install yarn
+
+https://classic.yarnpkg.com/en/docs/install/#windows-stable
+
 ### `yarn`
 
-With the project open in coding editor for install at dependencies
+With the project open in coding editor for install of dependencies
 
 ### `yarn start`
 
