@@ -12,7 +12,7 @@ https://classic.yarnpkg.com/en/docs/install/#windows-stable
 
 ### `yarn`
 
-With the project open in coding editor open you console for install of dependencies
+With the project open in coding editor open you console for installation of dependencies
 
 ### `yarn start`
 
