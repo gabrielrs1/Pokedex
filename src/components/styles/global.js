@@ -17,8 +17,32 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
+    body {
+        background-image: linear-gradient(to right, #f0f0f0, #2166ab);
+    }
+
     .limit {
         max-width: 1200px;
         margin: auto;
+    }
+
+    .react-modal-content {
+        background: #fff;
+        width: 100%;
+        max-width: 576px;
+    }
+
+    .react-modal-overlay {
+        background: #000000aa;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+
+        width: 100vw;
+        height: 100vh;
     }
 `

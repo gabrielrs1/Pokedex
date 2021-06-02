@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import axios from "axios";
+import { BoxContent } from "./styles";
 
-export function PokemonCard({ pokemon }) {
+export function PokemonCard({ pokemon, openModal }) {
     const [pokemonInfo, setPokemonInfo] = useState([])
 
     useEffect(() => {
@@ -11,11 +12,15 @@ export function PokemonCard({ pokemon }) {
     }, [pokemon])
 
     return (
-        <Card className="align-items-center">
-            <Card.Img variant="top" src={pokemonInfo.front_default} style={{ width: '10rem' }} />
-            <Card.Body>
-                <Card.Title>{pokemon.name}</Card.Title>     
-            </Card.Body>
-        </Card>
+        <BoxContent>
+            <Card className="align-items-center">
+                <button type="button" onClick={openModal}>
+                    <img src={pokemonInfo.front_default} />
+                </button>
+                <Card.Body>
+                    <Card.Title>{pokemon.name}</Card.Title>     
+                </Card.Body>
+            </Card>
+        </BoxContent>
     )
 }
