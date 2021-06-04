@@ -14,6 +14,7 @@ function App() {
   const [pokedexValues, setPokedexValues] = useState([]) // search
   const [pokemonValue, setPokemonValue] = useState('')
   const [isOpen, setIsOpen] = useState(false) // modal
+  const [pokemonIndex, setPokemonIndex] = useState(0) // modal de pokemon
 
   useEffect(() => {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
@@ -44,14 +45,13 @@ function App() {
 
   return (
     <div className="limit">
-      <PokemonModal isOpen={isOpen} onRequestClose={closeModal} />
-      
+      <PokemonModal isOpen={isOpen} onRequestClose={closeModal} pokemonIndex={pokemonIndex} />
       <SearchBox 
-       pokemons={PokemonSearch}
-       setPokemonValue={setPokemonValue}
-       pokemonValue={pokemonValue}
+      pokemons={PokemonSearch}
+      setPokemonValue={setPokemonValue}
+      pokemonValue={pokemonValue}
       />
-      <Pokemons pokedexValues={pokedexValues} openModal={openModal} />
+      <Pokemons pokedexValues={pokedexValues} openModal={openModal} pokemonIndex={setPokemonIndex} />
       <GlobalStyles />
     </div>
   );

@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import axios from "axios";
 import { BoxContent } from "./styles";
 
-export function PokemonCard({ pokemon, openModal }) {
+export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
     const [pokemonInfo, setPokemonInfo] = useState([])
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export function PokemonCard({ pokemon, openModal }) {
     return (
         <BoxContent>
             <Card className="align-items-center">
-                <button type="button" onClick={openModal}>
+                <button type="button" onClick={() => (openModal(), pokemonIndex(pokemon.url))}>
                     <img src={pokemonInfo.front_default} />
                 </button>
                 <Card.Body>
