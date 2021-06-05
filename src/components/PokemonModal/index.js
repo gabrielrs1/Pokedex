@@ -17,7 +17,8 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
             .then(response => (
                 setPokemonSprites(response.data.sprites),
                 setPokemonTypes(response.data.types),
-                setPokemonAbilities(response.data.abilities)
+                setPokemonAbilities(response.data.abilities),
+                setPokemonSpecies(response.data.species)
             ))
             .catch(error => {
                 console.log(error)
@@ -35,17 +36,20 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
          overlayClassName="react-modal-overlay"
         >   
             <BoxContent>
-                <Row>
-                    <Col>
+                <Row className="align-items-center">
+                    <Col className="text-center">
                         <img src={pokemonSprites.front_default} />
-                        <p></p>
+                        <p>{pokemonSpecies.name}</p>
                     </Col>
                     <Col>
+                        <h5>Tipo do pokemon:</h5>
                         <ul>
                             {pokemonTypes.map(types => (
                                 <li>{types.type.name}</li>   
                             ))}
                         </ul>
+
+                        <h5>Habilidades do pokemon:</h5>
                         <ul>
                             {pokemonAbilities.map(abilities => (
                                 <li>{abilities.ability.name}</li>   

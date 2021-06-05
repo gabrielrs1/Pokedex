@@ -30,6 +30,8 @@ export const GlobalStyles = createGlobalStyle`
         background: #fff;
         width: 100%;
         max-width: 576px;
+
+        padding: 2rem 0;
     }
 
     .react-modal-overlay {
