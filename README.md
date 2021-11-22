@@ -17,10 +17,10 @@ Execute application:
 
 #### <code>yarn start</code>
   
-### Tech
+## Tech
 
-React JS
-Axios
-PokeAPI
-Bootstrap
+React JS<br>
+Axios<br>
+PokeAPI<br>
+Bootstrap<br>
 Styled-Components
