@@ -1,4 +1,3 @@
-import React from "react";
 import { PokemonCard } from "../PokemonCard";
 import { BoxContent, PokemonTable } from "./styles";
 
@@ -9,13 +8,12 @@ export function Pokemons({ pokedexValues, openModal, pokemonIndex }) {
 
             <PokemonTable>
                 {pokedexValues.map((pokemon, index) => (
-                    <React.Fragment key={index}>
-                        <PokemonCard 
-                         pokemon={ pokemon }
-                         openModal={openModal}
-                         pokemonIndex={pokemonIndex}
-                        />
-                    </React.Fragment>
+                    <PokemonCard
+                        key={index}
+                        pokemon={ pokemon }
+                        openModal={openModal}
+                        pokemonIndex={pokemonIndex}
+                    />
                 ))}
             </PokemonTable>
         </BoxContent>

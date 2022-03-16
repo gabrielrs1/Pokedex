@@ -1,4 +1,4 @@
-import { useEffect, useState, React } from "react" 
+import { useEffect, useState } from "react" 
 import axios from "axios"
 
 import { Col, Row } from "react-bootstrap"
@@ -46,18 +46,14 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
                         <h5>Tipo do pokemon:</h5>
                         <ul>
                             {pokemonTypes.map((types, index) => (
-                                <React.Fragment key={index}>
-                                    <li>{types.type.name}</li>
-                                </React.Fragment> 
+                                <li key={index}>{types.type.name}</li>
                             ))}
                         </ul>
 
                         <h5>Habilidades do pokemon:</h5>
                         <ul>
                             {pokemonAbilities.map((abilities, index) => (
-                                <React.Fragment key={index}>
-                                    <li key={index}>{abilities.ability.name}</li>
-                                </React.Fragment>  
+                                <li key={index}>{abilities.ability.name}</li>
                             ))}
                         </ul>
                     </Col>
