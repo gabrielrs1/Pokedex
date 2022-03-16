@@ -8,7 +8,10 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
 
     useEffect(() => {
         axios.get(`${pokemon.url}`)
-        .then(response => setPokemonInfo(response.data.sprites.front_default))
+        .then(response => {
+            console.log(response.data.sprites)
+            setPokemonInfo(response.data.sprites.front_default)
+        })
     }, [pokemon])
 
     return (
