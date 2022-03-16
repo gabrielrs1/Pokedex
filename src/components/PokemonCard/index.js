@@ -4,12 +4,11 @@ import axios from "axios";
 import { BoxContent } from "./styles";
 
 export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
-    const [pokemonInfo, setPokemonInfo] = useState([])
+    const [pokemonInfo, setPokemonInfo] = useState("")
 
     useEffect(() => {
         axios.get(`${pokemon.url}`)
         .then(response => {
-            console.log(response.data.sprites)
             setPokemonInfo(response.data.sprites.front_default)
         })
     }, [pokemon])
