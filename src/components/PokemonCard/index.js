@@ -8,7 +8,7 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
 
     useEffect(() => {
         axios.get(`${pokemon.url}`)
-        .then(response => setPokemonInfo(response.data.sprites))
+        .then(response => setPokemonInfo(response.data.sprites.front_default))
     }, [pokemon])
 
     return (
@@ -18,7 +18,7 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
                     openModal()
                     pokemonIndex(pokemon.url)
                 }}>
-                    <img src={pokemonInfo.front_default} alt={pokemon.name} />
+                    <img src={pokemonInfo} alt={pokemon.name} />
                 </button>
                 <Card.Body>
                     <Card.Title>{pokemon.name}</Card.Title>     
