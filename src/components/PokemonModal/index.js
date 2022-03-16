@@ -7,16 +7,16 @@ import Modal from "react-modal"
 import { BoxContent } from "./styles"
 
 export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
-    const [pokemonSprites, setPokemonSprites] = useState([])
+    const [pokemonSprites, setPokemonSprites] = useState("")
     const [pokemonTypes, setPokemonTypes] = useState([])
     const [pokemonAbilities, setPokemonAbilities] = useState([])
-    const [pokemonSpecies, setPokemonSpecies] = useState([])
+    const [pokemonSpecies, setPokemonSpecies] = useState("")
 
     useEffect(() => {
         const getData = async () => {
             await axios.get(`${pokemonIndex}`)
             .then(response => {
-                setPokemonSprites(response.data.sprites)
+                setPokemonSprites(response.data.sprites.front_default)
                 setPokemonTypes(response.data.types)
                 setPokemonAbilities(response.data.abilities)
                 setPokemonSpecies(response.data.species)
@@ -39,7 +39,7 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
             <BoxContent>
                 <Row className="align-items-center">
                     <Col className="text-center">
-                        <img src={pokemonSprites.front_default} alt={pokemonSpecies.name} />
+                        <img src={pokemonSprites} alt={pokemonSpecies.name} />
                         <p>{pokemonSpecies.name}</p>
                     </Col>
                     <Col>
