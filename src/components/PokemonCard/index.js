@@ -14,8 +14,11 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
     return (
         <BoxContent>
             <Card className="align-items-center">
-                <button type="button" onClick={() => (openModal(), pokemonIndex(pokemon.url))}>
-                    <img src={pokemonInfo.front_default} />
+                <button type="button" onClick={() => {
+                    openModal()
+                    pokemonIndex(pokemon.url)
+                }}>
+                    <img src={pokemonInfo.front_default} alt={pokemon.name} />
                 </button>
                 <Card.Body>
                     <Card.Title>{pokemon.name}</Card.Title>     

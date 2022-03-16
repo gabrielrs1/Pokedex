@@ -18,7 +18,10 @@ function App() {
 
   useEffect(() => {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-    .then(response => (setPokedex(response.data.results), setPokedexValues(response.data.results)))
+    .then(response => {
+      setPokedex(response.data.results)
+      setPokedexValues(response.data.results)
+    })
   }, [])
 
   function PokemonSearch(event) {
@@ -45,13 +48,21 @@ function App() {
 
   return (
     <div className="limit">
-      <PokemonModal isOpen={isOpen} onRequestClose={closeModal} pokemonIndex={pokemonIndex} />
-      <SearchBox 
-      pokemons={PokemonSearch}
-      setPokemonValue={setPokemonValue}
-      pokemonValue={pokemonValue}
+      <PokemonModal 
+       isOpen={isOpen}
+       onRequestClose={closeModal}
+       pokemonIndex={pokemonIndex}
       />
-      <Pokemons pokedexValues={pokedexValues} openModal={openModal} pokemonIndex={setPokemonIndex} />
+      <SearchBox 
+       pokemons={PokemonSearch}
+       setPokemonValue={setPokemonValue}
+       pokemonValue={pokemonValue}
+      />
+      <Pokemons 
+       pokedexValues={pokedexValues}
+       openModal={openModal}
+       pokemonIndex={setPokemonIndex}
+      />
       <GlobalStyles />
     </div>
   );

@@ -1,5 +1,6 @@
+import { useEffect, useState, React } from "react" 
 import axios from "axios"
-import { useEffect, useState } from "react"
+
 import { Col, Row } from "react-bootstrap"
 import Modal from "react-modal"
 
@@ -14,12 +15,12 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
     useEffect(() => {
         const getData = async () => {
             await axios.get(`${pokemonIndex}`)
-            .then(response => (
-                setPokemonSprites(response.data.sprites),
-                setPokemonTypes(response.data.types),
-                setPokemonAbilities(response.data.abilities),
+            .then(response => {
+                setPokemonSprites(response.data.sprites)
+                setPokemonTypes(response.data.types)
+                setPokemonAbilities(response.data.abilities)
                 setPokemonSpecies(response.data.species)
-            ))
+            })
             .catch(error => {
                 console.log(error)
             })
@@ -38,21 +39,25 @@ export function PokemonModal({ isOpen, onRequestClose, pokemonIndex }) {
             <BoxContent>
                 <Row className="align-items-center">
                     <Col className="text-center">
-                        <img src={pokemonSprites.front_default} />
+                        <img src={pokemonSprites.front_default} alt={pokemonSpecies.name} />
                         <p>{pokemonSpecies.name}</p>
                     </Col>
                     <Col>
                         <h5>Tipo do pokemon:</h5>
                         <ul>
-                            {pokemonTypes.map(types => (
-                                <li>{types.type.name}</li>   
+                            {pokemonTypes.map((types, index) => (
+                                <React.Fragment key={index}>
+                                    <li>{types.type.name}</li>
+                                </React.Fragment> 
                             ))}
                         </ul>
 
                         <h5>Habilidades do pokemon:</h5>
                         <ul>
-                            {pokemonAbilities.map(abilities => (
-                                <li>{abilities.ability.name}</li>   
+                            {pokemonAbilities.map((abilities, index) => (
+                                <React.Fragment key={index}>
+                                    <li key={index}>{abilities.ability.name}</li>
+                                </React.Fragment>  
                             ))}
                         </ul>
                     </Col>
