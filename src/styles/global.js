@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-image: linear-gradient(to right, #f0f0f0, #2166ab);
+        background: ${props => props.theme.colors.terciary};
     }
 
     .limit {
@@ -27,11 +27,15 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .react-modal-content {
-        background: #fff;
+        background: ${props => props.theme.colors.primary};
         width: 100%;
         max-width: 576px;
 
         padding: 2rem 0;
+
+        border-radius: 5px;
+
+        margin: 0 15px;
     }
 
     .react-modal-overlay {

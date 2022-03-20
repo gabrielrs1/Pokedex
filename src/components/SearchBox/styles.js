@@ -4,6 +4,7 @@ export const BoxContent = styled.form`
     margin-top: 4rem;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 

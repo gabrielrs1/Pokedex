@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import axios from "axios";
 import { BoxContent } from "./styles";
+import { ThemeContext } from "styled-components";
 
 export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
     const [pokemonInfo, setPokemonInfo] = useState("")
+
+    const { colors } = useContext(ThemeContext)
 
     useEffect(() => {
         axios.get(`${pokemon.url}`)
@@ -15,7 +18,7 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
 
     return (
         <BoxContent>
-            <Card className="align-items-center">
+            <Card className="align-items-center" style={{ background: `${colors.primary}` }}>
                 <button type="button" onClick={() => {
                     openModal()
                     pokemonIndex(pokemon.url)
@@ -23,7 +26,7 @@ export function PokemonCard({ pokemon, openModal, pokemonIndex }) {
                     <img src={pokemonInfo} alt={pokemon.name} />
                 </button>
                 <Card.Body>
-                    <Card.Title>{pokemon.name}</Card.Title>     
+                    <Card.Title style={{ color: `${colors.text}` }}>{pokemon.name}</Card.Title>     
                 </Card.Body>
             </Card>
         </BoxContent>

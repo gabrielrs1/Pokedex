@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const BoxContent = styled.main`
-    margin-top: 4rem;
+    margin-top: 3rem;
 
     h1 {
         margin: 0 2rem 2rem 2rem;
+
+        color: ${props => props.theme.colors.text};
     }
 `
 
